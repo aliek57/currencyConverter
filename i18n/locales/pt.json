@@ -3,9 +3,20 @@
         "en": "Inglês",
         "pt": "Português"
     },
-    "test": {
-        "name": "CurrencyConverter.",
-        "title": "Conversor de Moedas",
-        "currencies_loaded": "Moedas carregadas: {{count}}"
+    "converter": {
+        "name": "Conversor de Moedas",
+        "amount": "Valor",
+        "from": "De",
+        "to": "Para",
+        "converted": "Convertido",
+        "search": "Buscar moeda...",
+        "no_results": "Nenhuma moeda encontrada",
+        "loading": "Carregando...",
+        "error": "Erro ao carregar dados."
+    },
+    "chart": {
+        "title": "Histórico de 30 dias ({{from}} para {{to}})",
+        "loading": "Carregando gráfico...",
+        "error": "Dados históricos indisponíveis"
     }
 }

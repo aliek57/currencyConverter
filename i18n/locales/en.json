@@ -3,9 +3,20 @@
         "en": "English",
         "pt": "Portuguese"
     },
-    "test": {
-        "name": "CurrencyConverter.",
-        "title": "Currency Converter",
-        "currencies_loaded": "Currencies loaded: {{count}}"
+    "converter": {
+        "name": "Currency Converter",
+        "amount": "Amount",
+        "from": "From",
+        "to": "To",
+        "converted": "Converted",
+        "search": "Search currency...",
+        "no_results": "No currency found",
+        "loading": "Loading...",
+        "error": "Error loading data."
+    },
+    "chart": {
+        "title": "30-day History ({{from}} to {{to}})",
+        "loading": "Loading chart...",
+        "error": "Historical data unavailable"
     }
 }

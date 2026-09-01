@@ -18,7 +18,7 @@ export function Header() {
         whileTap={{ scale: 0.95 }}
         className="text-xl md:text-2xl font-black tracking-tight cursor-pointer bg-gradient-to-b from-emerald-400 to-teal-700 dark:from-lime-300 dark:to-emerald-700 bg-clip-text text-transparent pb-1"
       >
-        {t('test.name')}
+        {t('converter.name')}
       </motion.h1>
       <div className="flex items-center gap-2 md:gap-4">
         <LanguageSelector />
