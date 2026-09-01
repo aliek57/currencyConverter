@@ -1,5 +1,11 @@
 {
+    "language": {
+        "en": "Inglês",
+        "pt": "Português"
+    },
     "test": {
-        "name": "Currency Converter"
+        "name": "CurrencyConverter.",
+        "title": "Conversor de Moedas",
+        "currencies_loaded": "Moedas carregadas: {{count}}"
     }
 }

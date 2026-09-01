@@ -1,0 +1,11 @@
+{
+    "language": {
+        "en": "English",
+        "pt": "Portuguese"
+    },
+    "test": {
+        "name": "CurrencyConverter.",
+        "title": "Currency Converter",
+        "currencies_loaded": "Currencies loaded: {{count}}"
+    }
+}
