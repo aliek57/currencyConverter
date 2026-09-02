@@ -1,25 +1,30 @@
-import { useTranslation } from 'react-i18next';
+import { useState } from 'react';
 import { Header } from './components/header';
 import { Converter } from './components/converter';
+import { HistoricalChart } from './components/historical-chart';
 
 function App() {
-  const { t } = useTranslation();
+  const [fromCurrency, setFromCurrency] = useState<string>('USD');
+  const [toCurrency, setToCurrency] = useState<string>('BRL');
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 transition-colors duration-500 font-sans">
       <Header /> 
       
       <main className="w-full max-w-6xl mx-auto px-4 py-8 md:py-12">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start justify-center">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch justify-center">
           
           <div className="w-full lg:w-1/2 flex-shrink-0">
-            <Converter />
+            <Converter 
+              fromCurrency={fromCurrency} 
+              setFromCurrency={setFromCurrency}
+              toCurrency={toCurrency}
+              setToCurrency={setToCurrency}
+            />
           </div>
 
           <div className="w-full lg:w-1/2 flex-shrink-0">
-            <div className="w-full h-96 bg-white dark:bg-[#121214] border border-zinc-200 dark:border-zinc-800 rounded-[2rem] flex items-center justify-center shadow-sm">
-              <p className="text-zinc-500 font-medium">{t('chart.loading')}</p>
-            </div>
+            <HistoricalChart from={fromCurrency} to={toCurrency} />
           </div>
 
         </div>

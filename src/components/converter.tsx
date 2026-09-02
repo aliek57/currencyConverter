@@ -7,14 +7,19 @@ import { useDebounce } from '../hooks/use-debounce';
 import { useConversion } from '../hooks/use-conversion';
 import { CurrencyDropdown } from './currency-dropdown';
 
-export function Converter() {
+interface ConverterProps {
+  fromCurrency: string;
+  setFromCurrency: (val: string) => void;
+  toCurrency: string;
+  setToCurrency: (val: string) => void;
+}
+
+export function Converter({ fromCurrency, setFromCurrency, toCurrency, setToCurrency }: ConverterProps) {
   const { t } = useTranslation();
   
   const { data: currencies, isLoading, isError } = useCurrencies();
 
   const [amount, setAmount] = useState<string>('1');
-  const [fromCurrency, setFromCurrency] = useState<string>('USD');
-  const [toCurrency, setToCurrency] = useState<string>('BRL');
   const [rotation, setRotation] = useState(0);
 
   const debouncedAmount = useDebounce(amount, 500);
@@ -27,8 +32,9 @@ export function Converter() {
 
   const handleSwap = () => {
     setRotation(prev => prev + 180);
+    const temp = fromCurrency;
     setFromCurrency(toCurrency);
-    setToCurrency(fromCurrency);
+    setToCurrency(temp);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -71,7 +77,7 @@ export function Converter() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="w-full p-6 md:p-8 rounded-[2rem] bg-white dark:bg-[#121214] border border-zinc-200 dark:border-zinc-800 shadow-sm relative z-10"
+      className="w-full h-full flex flex-col p-6 md:p-8 rounded-[2rem] bg-white dark:bg-[#121214] border border-zinc-200 dark:border-zinc-800 shadow-sm relative z-10"
     >
       <div className="flex flex-col gap-6 w-full">       
         <div className="flex flex-col w-full relative gap-4">      

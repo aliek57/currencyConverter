@@ -17,6 +17,7 @@
     "chart": {
         "title": "30-day History ({{from}} to {{to}})",
         "loading": "Loading chart...",
-        "error": "Historical data unavailable"
+        "error": "Historical data unavailable",
+        "same_currency": "Select different currencies to view history."
     }
 }
