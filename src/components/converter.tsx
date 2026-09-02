@@ -14,6 +14,13 @@ interface ConverterProps {
   setToCurrency: (val: string) => void;
 }
 
+interface CurrencyItem {
+  iso_code: string;
+  name: string;
+}
+
+type CurrencyDictionary = Record<string, string | { name: string }>;
+
 export function Converter({ fromCurrency, setFromCurrency, toCurrency, setToCurrency }: ConverterProps) {
   const { t } = useTranslation();
   
@@ -55,21 +62,24 @@ export function Converter({ fromCurrency, setFromCurrency, toCurrency, setToCurr
 
   let currencyOptions: string[] = [];
   if (Array.isArray(currencies)) {
-    currencyOptions = currencies.map((c: any) => c.iso_code).filter(Boolean).sort();
+    currencyOptions = (currencies as CurrencyItem[]).map((c) => c.iso_code).filter(Boolean).sort();
   } else {
-    currencyOptions = Object.keys(currencies).sort();
+    currencyOptions = Object.keys(currencies as Record<string, unknown>).sort();
   }
 
   const getCurrencyName = (code: string) => {
     if (!currencies) return code;
     
     if (Array.isArray(currencies)) {
-      const found = currencies.find((c: any) => c.iso_code === code);
+      const found = (currencies as CurrencyItem[]).find((c) => c.iso_code === code);
       return found?.name || code;
     }
     
-    const currencyData = (currencies as any)[code];
-    return typeof currencyData === 'string' ? currencyData : (currencyData?.name || code);
+    const currencyDict = currencies as CurrencyDictionary;
+    const currencyData = currencyDict[code];
+    if (typeof currencyData === 'string') return currencyData;
+
+    return currencyData?.name || code;
   };
 
   return (

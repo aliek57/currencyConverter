@@ -18,6 +18,8 @@
     "chart": {
         "title": "Histórico de 30 dias ({{from}} para {{to}})",
         "error": "Dados históricos indisponíveis",
-        "same_currency": "Selecione moedas diferentes para visualizar o histórico."
+        "same_currency": "Selecione moedas diferentes para visualizar o histórico.",
+        "reveal": "Arraste para visualizar",
+        "hide": "Arraste para ocultar"
     }
 }

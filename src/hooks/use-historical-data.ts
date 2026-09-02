@@ -5,6 +5,14 @@ export interface ChartDataPoint {
   rate: number;
 }
 
+interface HistoricalApiResponse {
+  amount: number;
+  base: string;
+  start_date: string;
+  end_date: string;
+  rates: Record<string, Record<string, number>>;
+}
+
 const fetchHistoricalData = async (from: string, to: string): Promise<ChartDataPoint[]> => {
   if (from === to) return [];
 
@@ -19,13 +27,13 @@ const fetchHistoricalData = async (from: string, to: string): Promise<ChartDataP
 
   if (!response.ok) throw new Error('Failed to fetch historical data');
 
-  const data = await response.json();
+  const data = (await response.json()) as HistoricalApiResponse;
   
   const chartData: ChartDataPoint[] = [];
   
   for (const [dateStr, ratesObj] of Object.entries(data.rates)) {
-    const rate = (ratesObj as any)[to];
-    if (rate) {
+    const rate = ratesObj[to];
+    if (rate !== undefined) {
        const [, month, day] = dateStr.split('-');
        chartData.push({ date: `${day}/${month}`, rate });
     }

@@ -18,6 +18,8 @@
     "chart": {
         "title": "30-day History ({{from}} to {{to}})",
         "error": "Historical data unavailable",
-        "same_currency": "Select different currencies to view history."
+        "same_currency": "Select different currencies to view history.",
+        "reveal": "Drag to reveal",
+        "hide": "Drag to hide"
     }
 }
