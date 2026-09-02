@@ -8,7 +8,7 @@ export const fetchCurrencies = async (): Promise<CurrenciesResponse> => {
   const response = await fetch(`${BASE_URL}/currencies`);
   
   if (!response.ok) {
-    throw new Error('Erro ao buscar as moedas disponíveis.');
+    throw new Error('Failed to fetch currencies');
   }
 
   return response.json();

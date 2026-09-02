@@ -24,7 +24,7 @@ export function Converter({ fromCurrency, setFromCurrency, toCurrency, setToCurr
 
   const debouncedAmount = useDebounce(amount, 500);
 
-  const { data: convertedAmount, isFetching } = useConversion(
+  const { data: convertedAmount, isFetching, isError: isConversionError } = useConversion(
     debouncedAmount,
     fromCurrency,
     toCurrency
@@ -143,10 +143,16 @@ export function Converter({ fromCurrency, setFromCurrency, toCurrency, setToCurr
               {t('converter.converted')}
             </label>
             <div className="relative w-full">
-              <div className={`w-full min-w-0 h-14 flex items-center bg-zinc-100/50 dark:bg-zinc-800/30 border border-zinc-200/50 dark:border-zinc-800/50 rounded-2xl px-4 text-xl md:text-2xl font-black text-emerald-600 dark:text-lime-400 overflow-hidden transition-opacity duration-300 ${isFetching ? 'opacity-50' : 'opacity-100'}`}>
-                <span className="truncate w-full">
-                   {convertedAmount !== undefined ? convertedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'}
-                </span>
+              <div className={`w-full min-w-0 h-14 flex items-center bg-zinc-100/50 dark:bg-zinc-800/30 border border-zinc-200/50 dark:border-zinc-800/50 rounded-2xl px-4 text-xl md:text-2xl font-black overflow-hidden transition-opacity duration-300 ${isFetching && !isConversionError ? 'opacity-50' : 'opacity-100'} ${isConversionError ? 'text-red-500 dark:text-red-400' : 'text-emerald-600 dark:text-lime-400'}`}>
+                {isConversionError ? (
+                  <span className="truncate w-full cursor-help" title={t('converter.not_available_tooltip')}>
+                    {t('converter.not_available')}
+                  </span>
+                ) : (
+                  <span className="truncate w-full">
+                     {convertedAmount !== undefined ? convertedAmount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'}
+                  </span>
+                )}
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ const fetchHistoricalData = async (from: string, to: string): Promise<ChartDataP
 
   const response = await fetch(`https://api.frankfurter.dev/v1/${start}..${end}?base=${from}&symbols=${to}`);
 
-  if (!response.ok) throw new Error('Erro ao buscar histórico');
+  if (!response.ok) throw new Error('Failed to fetch historical data');
 
   const data = await response.json();
   

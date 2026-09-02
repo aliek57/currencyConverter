@@ -11,12 +11,12 @@
         "converted": "Converted",
         "search": "Search currency...",
         "no_results": "No currency found",
-        "loading": "Loading...",
-        "error": "Error loading data."
+        "error": "Error loading data.",
+        "not_available": "N/A",
+        "not_available_tooltip": "Exchange rate unavailable for this pair."
     },
     "chart": {
         "title": "30-day History ({{from}} to {{to}})",
-        "loading": "Loading chart...",
         "error": "Historical data unavailable",
         "same_currency": "Select different currencies to view history."
     }

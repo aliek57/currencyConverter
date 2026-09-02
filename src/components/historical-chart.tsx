@@ -46,11 +46,11 @@ export function HistoricalChart({ from, to }: HistoricalChartProps) {
        <div className="w-full flex-grow relative" style={{ minHeight: '250px' }}>
          {isLoading ? (
             <div className="absolute inset-0 flex items-center justify-center">
-               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500"></div>
+               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500 dark:border-lime-400"></div>
             </div>
          ) : isError || !data || data.length === 0 ? (
             <div className="absolute inset-0 flex items-center justify-center">
-               <p className="text-red-500 text-sm font-medium">{t('chart.error')}</p>
+               <p className="text-red-500 dark:text-red-400 text-sm font-medium">{t('chart.error')}</p>
             </div>
          ) : (
             <ResponsiveContainer width="100%" height="100%">

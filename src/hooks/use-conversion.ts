@@ -15,7 +15,7 @@ const fetchConversion = async (amount: string, from: string, to: string) => {
 
   const response = await fetch(`https://api.frankfurter.dev/v1/latest?amount=${amount}&from=${from}&to=${to}`);
   
-  if (!response.ok) throw new Error('Erro ao converter');
+  if (!response.ok) throw new Error('Failed to fetch conversion data');
   
   const data: ConversionResponse = await response.json();
   return data.rates[to];

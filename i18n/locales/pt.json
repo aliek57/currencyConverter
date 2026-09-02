@@ -11,12 +11,12 @@
         "converted": "Convertido",
         "search": "Buscar moeda...",
         "no_results": "Nenhuma moeda encontrada",
-        "loading": "Carregando...",
-        "error": "Erro ao carregar dados."
+        "error": "Erro ao carregar dados.",
+        "not_available": "N/D",
+        "not_available_tooltip": "Cotação indisponível para este par."
     },
     "chart": {
         "title": "Histórico de 30 dias ({{from}} para {{to}})",
-        "loading": "Carregando gráfico...",
         "error": "Dados históricos indisponíveis",
         "same_currency": "Selecione moedas diferentes para visualizar o histórico."
     }
