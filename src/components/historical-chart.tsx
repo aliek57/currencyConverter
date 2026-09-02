@@ -79,7 +79,12 @@ export function HistoricalChart({ from, to }: HistoricalChartProps) {
   const isRevealed = revealProgress > 50;
 
   return (
-    <div className="w-full h-[400px] bg-white dark:bg-[#121214] border border-zinc-200 dark:border-zinc-800 rounded-[2rem] shadow-sm p-6 flex flex-col">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5 }}
+      className="w-full h-[400px] bg-white dark:bg-[#121214] border border-zinc-200 dark:border-zinc-800 rounded-[2rem] shadow-sm p-6 flex flex-col"
+    >
        <h3 className="text-lg font-bold text-zinc-800 dark:text-zinc-100 mb-6">
          {t('chart.title', { from, to })}
        </h3>
@@ -157,6 +162,6 @@ export function HistoricalChart({ from, to }: HistoricalChartProps) {
             </>
          )}
        </div>
-    </div>
+    </motion.div>
   );
 }

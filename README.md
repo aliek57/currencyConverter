@@ -1,75 +1,66 @@
-# React + TypeScript + Vite
+# Currency Converter Application 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Currency Converter was developed to reflect the high standards of modern fintech applications, prioritizing robust data handling and a distraction-free, solid design.
 
-Currently, two official plugins are available:
+Beyond basic conversions, this project explores advanced React patterns such as state elevation, input debouncing 
+and custom hooks combined with Framer Motion mechanics to deliver a production-ready user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### Key Features:
 
-## React Compiler
+* **Global Exchange Rates:** Fetches live currency data from the Frankfurter API, ensuring accurate cross-rates and strict floating-point formatting.
+* **Interactive Data Visualization:** Features a 30-day historical trend chart built with Recharts. It includes a custom physics-based "Drag to Reveal" sliding overlay, crafted from scratch with Framer Motion to avoid interaction fatigue.
+* **Intelligent Currency Selection:** Custom searchable dropdowns that cleverly leverage the native JavaScript `Intl.NumberFormat` API to dynamically extract and display proper currency symbols worldwide.
+* **Bilingual & Theme-Aware:** Seamlessly switches between English/Portuguese (via `react-i18next`) and Light/Dark modes, with deep integration into the chart's color scheme.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+* React + TypeScript + Vite
+* Tailwind CSS v4
+* TanStack React Query (Data Fetching & Caching)
+* Framer Motion (Animations & Drag Interactions)
+* Lucide React (Icons)
+* React-i18next (Internationalization)
+* Recharts (Data Visualization)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## How to Run 
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The following instructions will help you set up a copy of the project on your local machine for development and testing purposes.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Before starting, make sure you have Node.js installed on your machine. Use the IDE of your preference to open the project.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+When you are ready, open your terminal and clone the repository:
 
 ```
+git clone https://github.com/aliek57/currencyConverter.git
+```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Initial Configuration
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This application does not require any API Keys or *.env* files to run. It uses the free, 
+open-source Frankfurter API making it incredibly easy to set up.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Follow these steps to set up your development environment:
+
+1. Navigate to the project folder:
 
 ```
+cd YOUR_FOLDER_NAME
+```
+
+2. Install all necessary dependencies:
+
+```
+npm install
+```
+
+3. After installation, start the development server:
+
+```
+npm run dev
+```
+
+You are all set! The Currency Converter is now running on your local machine.
+
+---
+
+**Live Demo:** You can also view and interact with the live application here [Currency Converter Live Demo](https://currency-converter-theta-five-27.vercel.app/)

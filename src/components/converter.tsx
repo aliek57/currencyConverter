@@ -86,7 +86,7 @@ export function Converter({ fromCurrency, setFromCurrency, toCurrency, setToCurr
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
+      transition={{ duration: 1 }}
       className="w-full h-full flex flex-col p-6 md:p-8 rounded-[2rem] bg-white dark:bg-[#121214] border border-zinc-200 dark:border-zinc-800 shadow-sm relative z-10"
     >
       <div className="flex flex-col gap-6 w-full">       
